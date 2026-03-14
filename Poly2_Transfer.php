@@ -1,28 +1,45 @@
 <?php
 
-class Transfer {
-    public function proses() {
-        echo "Melakukan proses transfer";
-    }
+interface Pembayaran {
+
+    public function prosesPembayaran();
+
 }
 
-class TransferBank extends Transfer {
-    public function proses() {
-        echo "Transfer melalui Bank";
+class TransferBank implements Pembayaran {
+
+    public function prosesPembayaran() {
+        echo "Pembayaran melalui Transfer Bank";
     }
+
 }
 
-class TransferEwallet extends Transfer {
-    public function proses() {
-        echo "Transfer melalui E-Wallet";
+class EWallet implements Pembayaran {
+
+    public function prosesPembayaran() {
+        echo "Pembayaran melalui E-Wallet";
     }
+
+} 
+
+class KartuKredit implements Pembayaran {
+
+    public function prosesPembayaran() {
+        echo "Pembayaran melalui Kartu Kredit";
+    }
+
 }
 
-$bank = new TransferBank();
-$ewallet = new TransferEwallet();
+$p1 = new TransferBank();
+$p2 = new EWallet();
+$p3 = new KartuKredit();
 
-$bank->proses();
+$p1->prosesPembayaran();
 echo "<br>";
-$ewallet->proses();
+
+$p2->prosesPembayaran();
+echo "<br>";
+
+$p3->prosesPembayaran();
 
 ?>
