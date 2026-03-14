@@ -1,28 +1,33 @@
 <?php
 
-class Kapal {
-    public function jalan() {
-        echo "Kapal sedang berjalan";
-    }
+abstract class Kendaraan {
+
+    abstract public function berjalan();
+
 }
 
-class KapalPenumpang extends Kapal {
-    public function jalan() {
-        echo "Kapal penumpang membawa banyak orang";
+class Mobil extends Kendaraan {
+
+    public function berjalan() {
+        echo "Mobil berjalan di jalan raya";
     }
+
 }
 
-class KapalBarang extends Kapal {
-    public function jalan() {
-        echo "Kapal barang mengangkut barang";
+class Kapal extends Kendaraan {
+
+    public function berjalan() {
+        echo "Kapal berlayar di laut";
     }
+
 }
 
-$kapal1 = new KapalPenumpang();
-$kapal2 = new KapalBarang();
+$mobil = new Mobil();
+$kapal = new Kapal();
 
-$kapal1->jalan();
+$mobil->berjalan();;
 echo "<br>";
-$kapal2->jalan();
+
+$kapal->berjalan();
 
 ?>
